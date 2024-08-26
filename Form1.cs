@@ -31,5 +31,20 @@ namespace Proyecto_1
         {
 
         }
+
+        private void label_nombre_pro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
