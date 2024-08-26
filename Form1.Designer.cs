@@ -53,6 +53,7 @@
             dateTimePicker1 = new DateTimePicker();
             panel2 = new Panel();
             panel4 = new Panel();
+            listBox_empleado_asignado = new ListBox();
             listBox_proyecto_tarea = new ListBox();
             label3 = new Label();
             panel7 = new Panel();
@@ -76,7 +77,6 @@
             button2 = new Button();
             button_editar_tarea = new Button();
             button4 = new Button();
-            listBox_empleado_asignado = new ListBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -108,7 +108,6 @@
             button_editar_pro.Text = "Editar";
             button_editar_pro.UseVisualStyleBackColor = true;
             button_editar_pro.UseWaitCursor = true;
-            button_editar_pro.Click += button1_Click_1;
             // 
             // button_lista_pro
             // 
@@ -221,7 +220,6 @@
             label_nombre_pro.TabIndex = 12;
             label_nombre_pro.Text = "Nombre";
             label_nombre_pro.UseWaitCursor = true;
-            label_nombre_pro.Click += label_nombre_pro_Click;
             // 
             // label_horas_totales_pro
             // 
@@ -351,7 +349,6 @@
             panel2.Size = new Size(539, 280);
             panel2.TabIndex = 11;
             panel2.UseWaitCursor = true;
-            panel2.Paint += panel2_Paint;
             // 
             // panel4
             // 
@@ -375,7 +372,17 @@
             panel4.Size = new Size(539, 332);
             panel4.TabIndex = 13;
             panel4.UseWaitCursor = true;
-            panel4.Paint += panel4_Paint;
+            panel4.Paint += panel2_Paint;
+            // 
+            // listBox_empleado_asignado
+            // 
+            listBox_empleado_asignado.FormattingEnabled = true;
+            listBox_empleado_asignado.ItemHeight = 15;
+            listBox_empleado_asignado.Location = new Point(233, 245);
+            listBox_empleado_asignado.Name = "listBox_empleado_asignado";
+            listBox_empleado_asignado.Size = new Size(295, 19);
+            listBox_empleado_asignado.TabIndex = 25;
+            listBox_empleado_asignado.UseWaitCursor = true;
             // 
             // listBox_proyecto_tarea
             // 
@@ -623,16 +630,6 @@
             button4.Text = "Eliminar";
             button4.UseVisualStyleBackColor = true;
             button4.UseWaitCursor = true;
-            // 
-            // listBox_empleado_asignado
-            // 
-            listBox_empleado_asignado.FormattingEnabled = true;
-            listBox_empleado_asignado.ItemHeight = 15;
-            listBox_empleado_asignado.Location = new Point(233, 245);
-            listBox_empleado_asignado.Name = "listBox_empleado_asignado";
-            listBox_empleado_asignado.Size = new Size(295, 19);
-            listBox_empleado_asignado.TabIndex = 25;
-            listBox_empleado_asignado.UseWaitCursor = true;
             // 
             // Form1
             // 
