@@ -26,5 +26,10 @@ namespace Proyecto_1
         {
 
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
