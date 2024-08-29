@@ -32,6 +32,7 @@
             button_editarProyecto = new Button();
             button_listaProyecto = new Button();
             panel1 = new Panel();
+            button_finEdicion = new Button();
             dataGridView_proyectos = new DataGridView();
             Nombre = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
@@ -54,10 +55,10 @@
             date_creacion_proyecto = new DateTimePicker();
             panel2 = new Panel();
             panel4 = new Panel();
-            listBox_empleado_asignado = new ListBox();
-            listBox_proyecto_tarea = new ListBox();
+            comboBox_empleadoAsignado = new ComboBox();
+            comboBox_proyectoTarea = new ComboBox();
             label3 = new Label();
-            numericUpDown_tareas = new NumericUpDown();
+            numericUpDown_horasTarea = new NumericUpDown();
             date_fecha_inicio_tarea = new DateTimePicker();
             label2 = new Label();
             label5 = new Label();
@@ -75,19 +76,18 @@
             button_listaTarea = new Button();
             button_editarTarea = new Button();
             button_eliminarTarea = new Button();
-            button_finEdicion = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown_tareas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_horasTarea).BeginInit();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_tareas).BeginInit();
             SuspendLayout();
             // 
             // button_eliminarProyecto
             // 
-            button_eliminarProyecto.Location = new Point(440, 240);
+            button_eliminarProyecto.Location = new Point(514, 239);
             button_eliminarProyecto.Margin = new Padding(3, 2, 3, 2);
             button_eliminarProyecto.Name = "button_eliminarProyecto";
             button_eliminarProyecto.Size = new Size(82, 22);
@@ -111,7 +111,7 @@
             // 
             // button_listaProyecto
             // 
-            button_listaProyecto.Location = new Point(528, 240);
+            button_listaProyecto.Location = new Point(602, 239);
             button_listaProyecto.Margin = new Padding(3, 2, 3, 2);
             button_listaProyecto.Name = "button_listaProyecto";
             button_listaProyecto.Size = new Size(82, 22);
@@ -133,6 +133,18 @@
             panel1.Size = new Size(702, 282);
             panel1.TabIndex = 3;
             panel1.UseWaitCursor = true;
+            // 
+            // button_finEdicion
+            // 
+            button_finEdicion.Location = new Point(105, 240);
+            button_finEdicion.Margin = new Padding(3, 2, 3, 2);
+            button_finEdicion.Name = "button_finEdicion";
+            button_finEdicion.Size = new Size(82, 22);
+            button_finEdicion.TabIndex = 6;
+            button_finEdicion.Text = "Confirmar";
+            button_finEdicion.UseVisualStyleBackColor = true;
+            button_finEdicion.UseWaitCursor = true;
+            button_finEdicion.Click += button_finEdicion_Click;
             // 
             // dataGridView_proyectos
             // 
@@ -339,10 +351,10 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(listBox_empleado_asignado);
-            panel4.Controls.Add(listBox_proyecto_tarea);
+            panel4.Controls.Add(comboBox_empleadoAsignado);
+            panel4.Controls.Add(comboBox_proyectoTarea);
             panel4.Controls.Add(label3);
-            panel4.Controls.Add(numericUpDown_tareas);
+            panel4.Controls.Add(numericUpDown_horasTarea);
             panel4.Controls.Add(date_fecha_inicio_tarea);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(label5);
@@ -356,25 +368,24 @@
             panel4.TabIndex = 13;
             panel4.UseWaitCursor = true;
             // 
-            // listBox_empleado_asignado
+            // comboBox_empleadoAsignado
             // 
-            listBox_empleado_asignado.FormattingEnabled = true;
-            listBox_empleado_asignado.ItemHeight = 15;
-            listBox_empleado_asignado.Location = new Point(158, 134);
-            listBox_empleado_asignado.Name = "listBox_empleado_asignado";
-            listBox_empleado_asignado.Size = new Size(295, 19);
-            listBox_empleado_asignado.TabIndex = 25;
-            listBox_empleado_asignado.UseWaitCursor = true;
+            comboBox_empleadoAsignado.FormattingEnabled = true;
+            comboBox_empleadoAsignado.Location = new Point(158, 133);
+            comboBox_empleadoAsignado.Name = "comboBox_empleadoAsignado";
+            comboBox_empleadoAsignado.Size = new Size(293, 23);
+            comboBox_empleadoAsignado.TabIndex = 27;
+            comboBox_empleadoAsignado.UseWaitCursor = true;
             // 
-            // listBox_proyecto_tarea
+            // comboBox_proyectoTarea
             // 
-            listBox_proyecto_tarea.FormattingEnabled = true;
-            listBox_proyecto_tarea.ItemHeight = 15;
-            listBox_proyecto_tarea.Location = new Point(158, 103);
-            listBox_proyecto_tarea.Name = "listBox_proyecto_tarea";
-            listBox_proyecto_tarea.Size = new Size(295, 19);
-            listBox_proyecto_tarea.TabIndex = 24;
-            listBox_proyecto_tarea.UseWaitCursor = true;
+            comboBox_proyectoTarea.FormattingEnabled = true;
+            comboBox_proyectoTarea.Location = new Point(158, 95);
+            comboBox_proyectoTarea.Name = "comboBox_proyectoTarea";
+            comboBox_proyectoTarea.Size = new Size(293, 23);
+            comboBox_proyectoTarea.TabIndex = 26;
+            comboBox_proyectoTarea.UseWaitCursor = true;
+            comboBox_proyectoTarea.SelectedIndexChanged += comboBox_proyectoTarea_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -386,13 +397,13 @@
             label3.Text = "Empleado Asignado";
             label3.UseWaitCursor = true;
             // 
-            // numericUpDown_tareas
+            // numericUpDown_horasTarea
             // 
-            numericUpDown_tareas.Location = new Point(158, 66);
-            numericUpDown_tareas.Name = "numericUpDown_tareas";
-            numericUpDown_tareas.Size = new Size(293, 23);
-            numericUpDown_tareas.TabIndex = 22;
-            numericUpDown_tareas.UseWaitCursor = true;
+            numericUpDown_horasTarea.Location = new Point(158, 66);
+            numericUpDown_horasTarea.Name = "numericUpDown_horasTarea";
+            numericUpDown_horasTarea.Size = new Size(293, 23);
+            numericUpDown_horasTarea.TabIndex = 22;
+            numericUpDown_horasTarea.UseWaitCursor = true;
             // 
             // date_fecha_inicio_tarea
             // 
@@ -442,6 +453,7 @@
             button_guardarTarea.Text = "Guardar";
             button_guardarTarea.UseVisualStyleBackColor = true;
             button_guardarTarea.UseWaitCursor = true;
+            button_guardarTarea.Click += button_guardarTarea_Click;
             // 
             // label_gestion_tareas
             // 
@@ -512,7 +524,7 @@
             // 
             // button_listaTarea
             // 
-            button_listaTarea.Location = new Point(530, 298);
+            button_listaTarea.Location = new Point(604, 298);
             button_listaTarea.Margin = new Padding(3, 2, 3, 2);
             button_listaTarea.Name = "button_listaTarea";
             button_listaTarea.Size = new Size(82, 22);
@@ -543,18 +555,6 @@
             button_eliminarTarea.UseVisualStyleBackColor = true;
             button_eliminarTarea.UseWaitCursor = true;
             // 
-            // button_finEdicion
-            // 
-            button_finEdicion.Location = new Point(105, 240);
-            button_finEdicion.Margin = new Padding(3, 2, 3, 2);
-            button_finEdicion.Name = "button_finEdicion";
-            button_finEdicion.Size = new Size(82, 22);
-            button_finEdicion.TabIndex = 6;
-            button_finEdicion.Text = "Confirmar";
-            button_finEdicion.UseVisualStyleBackColor = true;
-            button_finEdicion.UseWaitCursor = true;
-            button_finEdicion.Click += button_finEdicion_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -575,7 +575,7 @@
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown_tareas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_horasTarea).EndInit();
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView_tareas).EndInit();
             ResumeLayout(false);
@@ -615,7 +615,6 @@
         private Button button_eliminarTarea;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
-        private ListBox listBox_proyecto_tarea;
         private Label label3;
         private ListBox listBox_empleado_asignado;
         private DataGridView dataGridView_proyectos;
@@ -626,7 +625,7 @@
         private DataGridViewTextBoxColumn Horas_Trabajadas;
         private DataGridViewTextBoxColumn Horas_Totales;
         private DataGridViewTextBoxColumn Fecha_Creacion;
-        private NumericUpDown numericUpDown_tareas;
+        private NumericUpDown numericUpDown_horasTarea;
         private DataGridViewTextBoxColumn Fecha_Inicio;
         private DataGridViewTextBoxColumn Estado_2;
         private DataGridViewTextBoxColumn Horas;
@@ -634,5 +633,7 @@
         private DataGridViewTextBoxColumn Proyecto;
         private DataGridViewTextBoxColumn Empleado;
         private Button button_finEdicion;
+        private ComboBox comboBox_proyectoTarea;
+        private ComboBox comboBox_empleadoAsignado;
     }
 }
