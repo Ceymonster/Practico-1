@@ -75,6 +75,7 @@
             button_listaTarea = new Button();
             button_editarTarea = new Button();
             button_eliminarTarea = new Button();
+            button_finEdicion = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).BeginInit();
             panel2.SuspendLayout();
@@ -86,7 +87,7 @@
             // 
             // button_eliminarProyecto
             // 
-            button_eliminarProyecto.Location = new Point(103, 240);
+            button_eliminarProyecto.Location = new Point(440, 240);
             button_eliminarProyecto.Margin = new Padding(3, 2, 3, 2);
             button_eliminarProyecto.Name = "button_eliminarProyecto";
             button_eliminarProyecto.Size = new Size(82, 22);
@@ -94,6 +95,7 @@
             button_eliminarProyecto.Text = "Eliminar";
             button_eliminarProyecto.UseVisualStyleBackColor = true;
             button_eliminarProyecto.UseWaitCursor = true;
+            button_eliminarProyecto.Click += button_eliminarProyecto_Click;
             // 
             // button_editarProyecto
             // 
@@ -105,6 +107,7 @@
             button_editarProyecto.Text = "Editar";
             button_editarProyecto.UseVisualStyleBackColor = true;
             button_editarProyecto.UseWaitCursor = true;
+            button_editarProyecto.Click += button_editarProyecto_Click;
             // 
             // button_listaProyecto
             // 
@@ -119,6 +122,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button_finEdicion);
             panel1.Controls.Add(button_listaProyecto);
             panel1.Controls.Add(button_editarProyecto);
             panel1.Controls.Add(button_eliminarProyecto);
@@ -142,6 +146,7 @@
             dataGridView_proyectos.Size = new Size(668, 225);
             dataGridView_proyectos.TabIndex = 5;
             dataGridView_proyectos.UseWaitCursor = true;
+            dataGridView_proyectos.CellContentClick += dataGridView_proyectos_CellContentClick;
             // 
             // Nombre
             // 
@@ -250,6 +255,7 @@
             button_guardarProyecto.Text = "Guardar";
             button_guardarProyecto.UseVisualStyleBackColor = true;
             button_guardarProyecto.UseWaitCursor = true;
+            button_guardarProyecto.Click += button_guardarProyecto_Click;
             // 
             // label_nombre_pro
             // 
@@ -537,6 +543,18 @@
             button_eliminarTarea.UseVisualStyleBackColor = true;
             button_eliminarTarea.UseWaitCursor = true;
             // 
+            // button_finEdicion
+            // 
+            button_finEdicion.Location = new Point(105, 240);
+            button_finEdicion.Margin = new Padding(3, 2, 3, 2);
+            button_finEdicion.Name = "button_finEdicion";
+            button_finEdicion.Size = new Size(82, 22);
+            button_finEdicion.TabIndex = 6;
+            button_finEdicion.Text = "Confirmar";
+            button_finEdicion.UseVisualStyleBackColor = true;
+            button_finEdicion.UseWaitCursor = true;
+            button_finEdicion.Click += button_finEdicion_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -615,5 +633,6 @@
         private DataGridViewTextBoxColumn Área;
         private DataGridViewTextBoxColumn Proyecto;
         private DataGridViewTextBoxColumn Empleado;
+        private Button button_finEdicion;
     }
 }
