@@ -28,102 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button_eliminar_pro = new Button();
-            button_editar_pro = new Button();
-            button_lista_pro = new Button();
+            button_eliminarProyecto = new Button();
+            button_editarProyecto = new Button();
+            button_listaProyecto = new Button();
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
+            dataGridView_proyectos = new DataGridView();
             Nombre = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
             Horas_Trabajadas = new DataGridViewTextBoxColumn();
             Horas_Totales = new DataGridViewTextBoxColumn();
             Fecha_Creacion = new DataGridViewTextBoxColumn();
-            textBox2 = new TextBox();
+            textBox_descripcion = new TextBox();
             textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            textBox_horasTrabajadas = new TextBox();
             label1 = new Label();
-            textBox5 = new TextBox();
-            textBox1 = new TextBox();
-            button_guardar_pro = new Button();
+            textBox_horasTotales = new TextBox();
+            textBox_nombreProyecto = new TextBox();
+            button_guardarProyecto = new Button();
             label_nombre_pro = new Label();
             label_horas_totales_pro = new Label();
             label_horas_trabajadas_pro = new Label();
             label_descripcion_pro = new Label();
             label_fecha_creacion_pro = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            date_creacion_proyecto = new DateTimePicker();
             panel2 = new Panel();
             panel4 = new Panel();
             listBox_empleado_asignado = new ListBox();
             listBox_proyecto_tarea = new ListBox();
             label3 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            numericUpDown_tareas = new NumericUpDown();
             date_fecha_inicio_tarea = new DateTimePicker();
             label2 = new Label();
             label5 = new Label();
             label_fecha_inicio_tarea = new Label();
-            button1 = new Button();
+            button_guardarTarea = new Button();
             label_gestion_tareas = new Label();
             panel6 = new Panel();
-            dataGridView2 = new DataGridView();
+            dataGridView_tareas = new DataGridView();
             Fecha_Inicio = new DataGridViewTextBoxColumn();
             Estado_2 = new DataGridViewTextBoxColumn();
             Horas = new DataGridViewTextBoxColumn();
             Área = new DataGridViewTextBoxColumn();
             Proyecto = new DataGridViewTextBoxColumn();
             Empleado = new DataGridViewTextBoxColumn();
-            button2 = new Button();
-            button_editar_tarea = new Button();
-            button4 = new Button();
+            button_listaTarea = new Button();
+            button_editarTarea = new Button();
+            button_eliminarTarea = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).BeginInit();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_tareas).BeginInit();
             panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_tareas).BeginInit();
             SuspendLayout();
             // 
-            // button_eliminar_pro
+            // button_eliminarProyecto
             // 
-            button_eliminar_pro.Location = new Point(103, 240);
-            button_eliminar_pro.Margin = new Padding(3, 2, 3, 2);
-            button_eliminar_pro.Name = "button_eliminar_pro";
-            button_eliminar_pro.Size = new Size(82, 22);
-            button_eliminar_pro.TabIndex = 2;
-            button_eliminar_pro.Text = "Eliminar";
-            button_eliminar_pro.UseVisualStyleBackColor = true;
-            button_eliminar_pro.UseWaitCursor = true;
+            button_eliminarProyecto.Location = new Point(103, 240);
+            button_eliminarProyecto.Margin = new Padding(3, 2, 3, 2);
+            button_eliminarProyecto.Name = "button_eliminarProyecto";
+            button_eliminarProyecto.Size = new Size(82, 22);
+            button_eliminarProyecto.TabIndex = 2;
+            button_eliminarProyecto.Text = "Eliminar";
+            button_eliminarProyecto.UseVisualStyleBackColor = true;
+            button_eliminarProyecto.UseWaitCursor = true;
             // 
-            // button_editar_pro
+            // button_editarProyecto
             // 
-            button_editar_pro.Location = new Point(16, 240);
-            button_editar_pro.Margin = new Padding(3, 2, 3, 2);
-            button_editar_pro.Name = "button_editar_pro";
-            button_editar_pro.Size = new Size(82, 22);
-            button_editar_pro.TabIndex = 1;
-            button_editar_pro.Text = "Editar";
-            button_editar_pro.UseVisualStyleBackColor = true;
-            button_editar_pro.UseWaitCursor = true;
+            button_editarProyecto.Location = new Point(16, 240);
+            button_editarProyecto.Margin = new Padding(3, 2, 3, 2);
+            button_editarProyecto.Name = "button_editarProyecto";
+            button_editarProyecto.Size = new Size(82, 22);
+            button_editarProyecto.TabIndex = 1;
+            button_editarProyecto.Text = "Editar";
+            button_editarProyecto.UseVisualStyleBackColor = true;
+            button_editarProyecto.UseWaitCursor = true;
             // 
-            // button_lista_pro
+            // button_listaProyecto
             // 
-            button_lista_pro.Location = new Point(528, 240);
-            button_lista_pro.Margin = new Padding(3, 2, 3, 2);
-            button_lista_pro.Name = "button_lista_pro";
-            button_lista_pro.Size = new Size(82, 22);
-            button_lista_pro.TabIndex = 4;
-            button_lista_pro.Text = "Lista";
-            button_lista_pro.UseVisualStyleBackColor = true;
-            button_lista_pro.UseWaitCursor = true;
-            button_lista_pro.Click += button_lista_pro_Click;
+            button_listaProyecto.Location = new Point(528, 240);
+            button_listaProyecto.Margin = new Padding(3, 2, 3, 2);
+            button_listaProyecto.Name = "button_listaProyecto";
+            button_listaProyecto.Size = new Size(82, 22);
+            button_listaProyecto.TabIndex = 4;
+            button_listaProyecto.Text = "Lista";
+            button_listaProyecto.UseVisualStyleBackColor = true;
+            button_listaProyecto.UseWaitCursor = true;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button_lista_pro);
-            panel1.Controls.Add(button_editar_pro);
-            panel1.Controls.Add(button_eliminar_pro);
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(button_listaProyecto);
+            panel1.Controls.Add(button_editarProyecto);
+            panel1.Controls.Add(button_eliminarProyecto);
+            panel1.Controls.Add(dataGridView_proyectos);
             panel1.Location = new Point(39, 34);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
@@ -131,19 +130,18 @@
             panel1.TabIndex = 3;
             panel1.UseWaitCursor = true;
             // 
-            // dataGridView1
+            // dataGridView_proyectos
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion });
-            dataGridView1.Location = new Point(16, 10);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(668, 225);
-            dataGridView1.TabIndex = 5;
-            dataGridView1.UseWaitCursor = true;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion });
+            dataGridView_proyectos.Location = new Point(16, 10);
+            dataGridView_proyectos.Margin = new Padding(3, 2, 3, 2);
+            dataGridView_proyectos.Name = "dataGridView_proyectos";
+            dataGridView_proyectos.RowHeadersWidth = 51;
+            dataGridView_proyectos.RowTemplate.Height = 29;
+            dataGridView_proyectos.Size = new Size(668, 225);
+            dataGridView_proyectos.TabIndex = 5;
+            dataGridView_proyectos.UseWaitCursor = true;
             // 
             // Nombre
             // 
@@ -187,15 +185,14 @@
             Fecha_Creacion.Name = "Fecha_Creacion";
             Fecha_Creacion.Width = 125;
             // 
-            // textBox2
+            // textBox_descripcion
             // 
-            textBox2.Location = new Point(158, 64);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(295, 23);
-            textBox2.TabIndex = 7;
-            textBox2.UseWaitCursor = true;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textBox_descripcion.Location = new Point(158, 64);
+            textBox_descripcion.Margin = new Padding(3, 2, 3, 2);
+            textBox_descripcion.Name = "textBox_descripcion";
+            textBox_descripcion.Size = new Size(295, 23);
+            textBox_descripcion.TabIndex = 7;
+            textBox_descripcion.UseWaitCursor = true;
             // 
             // textBox3
             // 
@@ -204,14 +201,14 @@
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 0;
             // 
-            // textBox4
+            // textBox_horasTrabajadas
             // 
-            textBox4.Location = new Point(158, 91);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(295, 23);
-            textBox4.TabIndex = 9;
-            textBox4.UseWaitCursor = true;
+            textBox_horasTrabajadas.Location = new Point(158, 91);
+            textBox_horasTrabajadas.Margin = new Padding(3, 2, 3, 2);
+            textBox_horasTrabajadas.Name = "textBox_horasTrabajadas";
+            textBox_horasTrabajadas.Size = new Size(295, 23);
+            textBox_horasTrabajadas.TabIndex = 9;
+            textBox_horasTrabajadas.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -225,36 +222,34 @@
             label1.UseWaitCursor = true;
             label1.Click += label1_Click;
             // 
-            // textBox5
+            // textBox_horasTotales
             // 
-            textBox5.Location = new Point(158, 118);
-            textBox5.Margin = new Padding(3, 2, 3, 2);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(295, 23);
-            textBox5.TabIndex = 10;
-            textBox5.UseWaitCursor = true;
-            textBox5.TextChanged += textBox5_TextChanged;
+            textBox_horasTotales.Location = new Point(158, 118);
+            textBox_horasTotales.Margin = new Padding(3, 2, 3, 2);
+            textBox_horasTotales.Name = "textBox_horasTotales";
+            textBox_horasTotales.Size = new Size(295, 23);
+            textBox_horasTotales.TabIndex = 10;
+            textBox_horasTotales.UseWaitCursor = true;
             // 
-            // textBox1
+            // textBox_nombreProyecto
             // 
-            textBox1.Location = new Point(158, 37);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(295, 23);
-            textBox1.TabIndex = 6;
-            textBox1.UseWaitCursor = true;
+            textBox_nombreProyecto.Location = new Point(158, 37);
+            textBox_nombreProyecto.Margin = new Padding(3, 2, 3, 2);
+            textBox_nombreProyecto.Name = "textBox_nombreProyecto";
+            textBox_nombreProyecto.Size = new Size(295, 23);
+            textBox_nombreProyecto.TabIndex = 6;
+            textBox_nombreProyecto.UseWaitCursor = true;
             // 
-            // button_guardar_pro
+            // button_guardarProyecto
             // 
-            button_guardar_pro.Location = new Point(326, 219);
-            button_guardar_pro.Margin = new Padding(3, 2, 3, 2);
-            button_guardar_pro.Name = "button_guardar_pro";
-            button_guardar_pro.Size = new Size(125, 41);
-            button_guardar_pro.TabIndex = 11;
-            button_guardar_pro.Text = "Guardar";
-            button_guardar_pro.UseVisualStyleBackColor = true;
-            button_guardar_pro.UseWaitCursor = true;
-            button_guardar_pro.Click += button4_Click;
+            button_guardarProyecto.Location = new Point(326, 219);
+            button_guardarProyecto.Margin = new Padding(3, 2, 3, 2);
+            button_guardarProyecto.Name = "button_guardarProyecto";
+            button_guardarProyecto.Size = new Size(125, 41);
+            button_guardarProyecto.TabIndex = 11;
+            button_guardarProyecto.Text = "Guardar";
+            button_guardarProyecto.UseVisualStyleBackColor = true;
+            button_guardarProyecto.UseWaitCursor = true;
             // 
             // label_nombre_pro
             // 
@@ -307,28 +302,28 @@
             label_fecha_creacion_pro.Text = "Fecha Creacion";
             label_fecha_creacion_pro.UseWaitCursor = true;
             // 
-            // dateTimePicker1
+            // date_creacion_proyecto
             // 
-            dateTimePicker1.Location = new Point(158, 146);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(295, 23);
-            dateTimePicker1.TabIndex = 20;
-            dateTimePicker1.UseWaitCursor = true;
+            date_creacion_proyecto.Location = new Point(158, 146);
+            date_creacion_proyecto.Name = "date_creacion_proyecto";
+            date_creacion_proyecto.Size = new Size(295, 23);
+            date_creacion_proyecto.TabIndex = 20;
+            date_creacion_proyecto.UseWaitCursor = true;
             // 
             // panel2
             // 
-            panel2.Controls.Add(dateTimePicker1);
+            panel2.Controls.Add(date_creacion_proyecto);
             panel2.Controls.Add(label_fecha_creacion_pro);
             panel2.Controls.Add(label_descripcion_pro);
             panel2.Controls.Add(label_horas_trabajadas_pro);
             panel2.Controls.Add(label_horas_totales_pro);
             panel2.Controls.Add(label_nombre_pro);
-            panel2.Controls.Add(button_guardar_pro);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(button_guardarProyecto);
+            panel2.Controls.Add(textBox_nombreProyecto);
+            panel2.Controls.Add(textBox_horasTotales);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(textBox4);
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(textBox_horasTrabajadas);
+            panel2.Controls.Add(textBox_descripcion);
             panel2.Location = new Point(745, 36);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
@@ -341,12 +336,12 @@
             panel4.Controls.Add(listBox_empleado_asignado);
             panel4.Controls.Add(listBox_proyecto_tarea);
             panel4.Controls.Add(label3);
-            panel4.Controls.Add(numericUpDown1);
+            panel4.Controls.Add(numericUpDown_tareas);
             panel4.Controls.Add(date_fecha_inicio_tarea);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label_fecha_inicio_tarea);
-            panel4.Controls.Add(button1);
+            panel4.Controls.Add(button_guardarTarea);
             panel4.Controls.Add(label_gestion_tareas);
             panel4.Location = new Point(745, 334);
             panel4.Margin = new Padding(3, 2, 3, 2);
@@ -354,7 +349,6 @@
             panel4.Size = new Size(460, 332);
             panel4.TabIndex = 13;
             panel4.UseWaitCursor = true;
-            panel4.Paint += panel2_Paint;
             // 
             // listBox_empleado_asignado
             // 
@@ -386,13 +380,13 @@
             label3.Text = "Empleado Asignado";
             label3.UseWaitCursor = true;
             // 
-            // numericUpDown1
+            // numericUpDown_tareas
             // 
-            numericUpDown1.Location = new Point(158, 66);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(293, 23);
-            numericUpDown1.TabIndex = 22;
-            numericUpDown1.UseWaitCursor = true;
+            numericUpDown_tareas.Location = new Point(158, 66);
+            numericUpDown_tareas.Name = "numericUpDown_tareas";
+            numericUpDown_tareas.Size = new Size(293, 23);
+            numericUpDown_tareas.TabIndex = 22;
+            numericUpDown_tareas.UseWaitCursor = true;
             // 
             // date_fecha_inicio_tarea
             // 
@@ -432,16 +426,16 @@
             label_fecha_inicio_tarea.Text = "Fecha Inicio";
             label_fecha_inicio_tarea.UseWaitCursor = true;
             // 
-            // button1
+            // button_guardarTarea
             // 
-            button1.Location = new Point(326, 277);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 41);
-            button1.TabIndex = 11;
-            button1.Text = "Guardar";
-            button1.UseVisualStyleBackColor = true;
-            button1.UseWaitCursor = true;
+            button_guardarTarea.Location = new Point(326, 277);
+            button_guardarTarea.Margin = new Padding(3, 2, 3, 2);
+            button_guardarTarea.Name = "button_guardarTarea";
+            button_guardarTarea.Size = new Size(127, 41);
+            button_guardarTarea.TabIndex = 11;
+            button_guardarTarea.Text = "Guardar";
+            button_guardarTarea.UseVisualStyleBackColor = true;
+            button_guardarTarea.UseWaitCursor = true;
             // 
             // label_gestion_tareas
             // 
@@ -456,10 +450,10 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(dataGridView2);
-            panel6.Controls.Add(button2);
-            panel6.Controls.Add(button_editar_tarea);
-            panel6.Controls.Add(button4);
+            panel6.Controls.Add(dataGridView_tareas);
+            panel6.Controls.Add(button_listaTarea);
+            panel6.Controls.Add(button_editarTarea);
+            panel6.Controls.Add(button_eliminarTarea);
             panel6.Location = new Point(37, 332);
             panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
@@ -467,18 +461,18 @@
             panel6.TabIndex = 12;
             panel6.UseWaitCursor = true;
             // 
-            // dataGridView2
+            // dataGridView_tareas
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Fecha_Inicio, Estado_2, Horas, Área, Proyecto, Empleado });
-            dataGridView2.Location = new Point(18, 10);
-            dataGridView2.Margin = new Padding(3, 2, 3, 2);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(668, 284);
-            dataGridView2.TabIndex = 6;
-            dataGridView2.UseWaitCursor = true;
+            dataGridView_tareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_tareas.Columns.AddRange(new DataGridViewColumn[] { Fecha_Inicio, Estado_2, Horas, Área, Proyecto, Empleado });
+            dataGridView_tareas.Location = new Point(18, 10);
+            dataGridView_tareas.Margin = new Padding(3, 2, 3, 2);
+            dataGridView_tareas.Name = "dataGridView_tareas";
+            dataGridView_tareas.RowHeadersWidth = 51;
+            dataGridView_tareas.RowTemplate.Height = 29;
+            dataGridView_tareas.Size = new Size(668, 284);
+            dataGridView_tareas.TabIndex = 6;
+            dataGridView_tareas.UseWaitCursor = true;
             // 
             // Fecha_Inicio
             // 
@@ -510,38 +504,38 @@
             Empleado.HeaderText = "Empleado";
             Empleado.Name = "Empleado";
             // 
-            // button2
+            // button_listaTarea
             // 
-            button2.Location = new Point(530, 298);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 22);
-            button2.TabIndex = 4;
-            button2.Text = "Lista";
-            button2.UseVisualStyleBackColor = true;
-            button2.UseWaitCursor = true;
+            button_listaTarea.Location = new Point(530, 298);
+            button_listaTarea.Margin = new Padding(3, 2, 3, 2);
+            button_listaTarea.Name = "button_listaTarea";
+            button_listaTarea.Size = new Size(82, 22);
+            button_listaTarea.TabIndex = 4;
+            button_listaTarea.Text = "Lista";
+            button_listaTarea.UseVisualStyleBackColor = true;
+            button_listaTarea.UseWaitCursor = true;
             // 
-            // button_editar_tarea
+            // button_editarTarea
             // 
-            button_editar_tarea.Location = new Point(18, 298);
-            button_editar_tarea.Margin = new Padding(3, 2, 3, 2);
-            button_editar_tarea.Name = "button_editar_tarea";
-            button_editar_tarea.Size = new Size(82, 22);
-            button_editar_tarea.TabIndex = 1;
-            button_editar_tarea.Text = "Editar";
-            button_editar_tarea.UseVisualStyleBackColor = true;
-            button_editar_tarea.UseWaitCursor = true;
+            button_editarTarea.Location = new Point(18, 298);
+            button_editarTarea.Margin = new Padding(3, 2, 3, 2);
+            button_editarTarea.Name = "button_editarTarea";
+            button_editarTarea.Size = new Size(82, 22);
+            button_editarTarea.TabIndex = 1;
+            button_editarTarea.Text = "Editar";
+            button_editarTarea.UseVisualStyleBackColor = true;
+            button_editarTarea.UseWaitCursor = true;
             // 
-            // button4
+            // button_eliminarTarea
             // 
-            button4.Location = new Point(107, 298);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(82, 22);
-            button4.TabIndex = 2;
-            button4.Text = "Eliminar";
-            button4.UseVisualStyleBackColor = true;
-            button4.UseWaitCursor = true;
+            button_eliminarTarea.Location = new Point(107, 298);
+            button_eliminarTarea.Margin = new Padding(3, 2, 3, 2);
+            button_eliminarTarea.Name = "button_eliminarTarea";
+            button_eliminarTarea.Size = new Size(82, 22);
+            button_eliminarTarea.TabIndex = 2;
+            button_eliminarTarea.Text = "Eliminar";
+            button_eliminarTarea.UseVisualStyleBackColor = true;
+            button_eliminarTarea.UseWaitCursor = true;
             // 
             // Form1
             // 
@@ -557,38 +551,37 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             UseWaitCursor = true;
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown_tareas).EndInit();
             panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView_tareas).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button_eliminar_pro;
-        private Button button_editar_pro;
-        private Button button_lista_pro;
+        private Button button_eliminarProyecto;
+        private Button button_editarProyecto;
+        private Button button_listaProyecto;
         private Panel panel1;
-        private TextBox textBox2;
+        private TextBox textBox_descripcion;
         private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox textBox_horasTrabajadas;
         private Label label1;
-        private TextBox textBox5;
-        private TextBox textBox1;
-        private Button button_guardar_pro;
+        private TextBox textBox_horasTotales;
+        private TextBox textBox_nombreProyecto;
+        private Button button_guardarProyecto;
         private Label label_nombre_pro;
         private Label label_horas_totales_pro;
         private Label label_horas_trabajadas_pro;
         private Label label_descripcion_pro;
         private Label label_fecha_creacion_pro;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker date_creacion_proyecto;
         private Panel panel2;
         private Panel panel4;
         private DateTimePicker date_fecha_inicio_tarea;
@@ -596,26 +589,26 @@
         private Label label2;
         private Label label5;
         private Label label_fecha_inicio_tarea;
-        private Button button1;
+        private Button button_guardarTarea;
         private Label label_gestion_tareas;
         private Panel panel6;
-        private Button button2;
-        private Button button_editar_tarea;
-        private Button button4;
+        private Button button_listaTarea;
+        private Button button_editarTarea;
+        private Button button_eliminarTarea;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private ListBox listBox_proyecto_tarea;
         private Label label3;
         private ListBox listBox_empleado_asignado;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridView_proyectos;
+        private DataGridView dataGridView_tareas;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Estado;
         private DataGridViewTextBoxColumn Horas_Trabajadas;
         private DataGridViewTextBoxColumn Horas_Totales;
         private DataGridViewTextBoxColumn Fecha_Creacion;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDown_tareas;
         private DataGridViewTextBoxColumn Fecha_Inicio;
         private DataGridViewTextBoxColumn Estado_2;
         private DataGridViewTextBoxColumn Horas;
