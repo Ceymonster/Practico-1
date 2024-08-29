@@ -11,6 +11,20 @@ namespace Proyecto_1
             dataGridView_proyectos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             CargarProyectosEnComboBox();
+
+            comboBox_estado.Items.AddRange(new string[] { "Pendiente", "En Progreso", "Finalizado" });
+            comboBox_estado.SelectedIndex = 0; 
+
+            //configurar la columna de estado como ComboBox en el DataGridView
+            DataGridViewComboBoxColumn estadoColumn = new DataGridViewComboBoxColumn
+            {
+                HeaderText = "Estado",
+                Name = "Estado",
+                DataSource = new string[] { "Pendiente", "En Progreso", "Finalizado" },
+                DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox
+            };
+
+
         }
 
 
@@ -30,6 +44,7 @@ namespace Proyecto_1
         {
             textBox_nombreProyecto.Clear();
             textBox_descripcion.Clear();
+            comboBox_estado.Items.Clear();
             textBox_horasTrabajadas.Clear();
             textBox_horasTotales.Clear();
             date_creacion_proyecto.Value = DateTime.Now;
@@ -50,6 +65,7 @@ namespace Proyecto_1
 
             string nombreProyecto = textBox_nombreProyecto.Text;
             string descripcion = textBox_descripcion.Text;
+            string estadoProyecto = comboBox_estado.SelectedItem.ToString();
             int horasTrabajadas;
             int horasTotales;
             DateTime fechaCreacion = date_creacion_proyecto.Value;
@@ -64,9 +80,11 @@ namespace Proyecto_1
             }
 
             // añadir los datos a la vista 
-            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString());
+            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString());
+
 
             LimpiarCamposProyecto();
+            CargarProyectosEnComboBox();
         }
 
 
@@ -109,6 +127,7 @@ namespace Proyecto_1
             {
                 MessageBox.Show("Seleccione un proyecto para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            CargarProyectosEnComboBox();
         }
 
         private void dataGridView_proyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,7 +141,7 @@ namespace Proyecto_1
 
         private void button_finEdicion_Click(object sender, EventArgs e)
         {
-            // finaliza el modo de edición proyecto
+            // Finaliza el modo de edición proyecto
             if (isEditing)
             {
                 isEditing = false;
@@ -133,8 +152,16 @@ namespace Proyecto_1
             else
             {
                 MessageBox.Show("No hay nada que confirmar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
+            CargarProyectosEnComboBox();
         }
+
+
+
+        //COMPORTAMIENTO TAREAS
+
+
 
         private void button_guardarTarea_Click(object sender, EventArgs e)
         {
@@ -196,7 +223,7 @@ namespace Proyecto_1
 
             foreach (DataGridViewRow row in dataGridView_proyectos.Rows)
             {
-                
+
                 if (row.Cells[0].Value != null)
                 {
                     // Añadir el nombre del proyecto al ComboBox
@@ -208,7 +235,7 @@ namespace Proyecto_1
         {
             dataGridView_tareas.Rows.Clear();
 
-            
+
 
             foreach (DataGridViewRow row in dataGridView_tareas.Rows)
             {

@@ -54,6 +54,8 @@
             label_fecha_creacion_pro = new Label();
             date_creacion_proyecto = new DateTimePicker();
             panel2 = new Panel();
+            comboBox_estado = new ComboBox();
+            label4 = new Label();
             panel4 = new Panel();
             comboBox_empleadoAsignado = new ComboBox();
             comboBox_proyectoTarea = new ComboBox();
@@ -150,7 +152,7 @@
             // 
             dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion });
-            dataGridView_proyectos.Location = new Point(16, 10);
+            dataGridView_proyectos.Location = new Point(16, 11);
             dataGridView_proyectos.Margin = new Padding(3, 2, 3, 2);
             dataGridView_proyectos.Name = "dataGridView_proyectos";
             dataGridView_proyectos.RowHeadersWidth = 51;
@@ -220,7 +222,7 @@
             // 
             // textBox_horasTrabajadas
             // 
-            textBox_horasTrabajadas.Location = new Point(158, 91);
+            textBox_horasTrabajadas.Location = new Point(158, 121);
             textBox_horasTrabajadas.Margin = new Padding(3, 2, 3, 2);
             textBox_horasTrabajadas.Name = "textBox_horasTrabajadas";
             textBox_horasTrabajadas.Size = new Size(295, 23);
@@ -241,7 +243,7 @@
             // 
             // textBox_horasTotales
             // 
-            textBox_horasTotales.Location = new Point(158, 118);
+            textBox_horasTotales.Location = new Point(158, 148);
             textBox_horasTotales.Margin = new Padding(3, 2, 3, 2);
             textBox_horasTotales.Name = "textBox_horasTotales";
             textBox_horasTotales.Size = new Size(295, 23);
@@ -282,7 +284,7 @@
             // label_horas_totales_pro
             // 
             label_horas_totales_pro.AutoSize = true;
-            label_horas_totales_pro.Location = new Point(48, 123);
+            label_horas_totales_pro.Location = new Point(48, 153);
             label_horas_totales_pro.Name = "label_horas_totales_pro";
             label_horas_totales_pro.Size = new Size(77, 15);
             label_horas_totales_pro.TabIndex = 13;
@@ -293,7 +295,7 @@
             // label_horas_trabajadas_pro
             // 
             label_horas_trabajadas_pro.AutoSize = true;
-            label_horas_trabajadas_pro.Location = new Point(48, 96);
+            label_horas_trabajadas_pro.Location = new Point(48, 126);
             label_horas_trabajadas_pro.Name = "label_horas_trabajadas_pro";
             label_horas_trabajadas_pro.Size = new Size(96, 15);
             label_horas_trabajadas_pro.TabIndex = 14;
@@ -313,7 +315,7 @@
             // label_fecha_creacion_pro
             // 
             label_fecha_creacion_pro.AutoSize = true;
-            label_fecha_creacion_pro.Location = new Point(48, 151);
+            label_fecha_creacion_pro.Location = new Point(48, 181);
             label_fecha_creacion_pro.Name = "label_fecha_creacion_pro";
             label_fecha_creacion_pro.Size = new Size(88, 15);
             label_fecha_creacion_pro.TabIndex = 17;
@@ -322,7 +324,7 @@
             // 
             // date_creacion_proyecto
             // 
-            date_creacion_proyecto.Location = new Point(158, 146);
+            date_creacion_proyecto.Location = new Point(158, 176);
             date_creacion_proyecto.Name = "date_creacion_proyecto";
             date_creacion_proyecto.Size = new Size(295, 23);
             date_creacion_proyecto.TabIndex = 20;
@@ -330,6 +332,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(comboBox_estado);
+            panel2.Controls.Add(label4);
             panel2.Controls.Add(date_creacion_proyecto);
             panel2.Controls.Add(label_fecha_creacion_pro);
             panel2.Controls.Add(label_descripcion_pro);
@@ -348,6 +352,25 @@
             panel2.Size = new Size(462, 280);
             panel2.TabIndex = 11;
             panel2.UseWaitCursor = true;
+            // 
+            // comboBox_estado
+            // 
+            comboBox_estado.FormattingEnabled = true;
+            comboBox_estado.Location = new Point(158, 92);
+            comboBox_estado.Name = "comboBox_estado";
+            comboBox_estado.Size = new Size(295, 23);
+            comboBox_estado.TabIndex = 22;
+            comboBox_estado.UseWaitCursor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(48, 97);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 15);
+            label4.TabIndex = 21;
+            label4.Text = "Estado";
+            label4.UseWaitCursor = true;
             // 
             // panel4
             // 
@@ -380,7 +403,7 @@
             // comboBox_proyectoTarea
             // 
             comboBox_proyectoTarea.FormattingEnabled = true;
-            comboBox_proyectoTarea.Location = new Point(158, 95);
+            comboBox_proyectoTarea.Location = new Point(158, 102);
             comboBox_proyectoTarea.Name = "comboBox_proyectoTarea";
             comboBox_proyectoTarea.Size = new Size(293, 23);
             comboBox_proyectoTarea.TabIndex = 26;
@@ -635,5 +658,7 @@
         private Button button_finEdicion;
         private ComboBox comboBox_proyectoTarea;
         private ComboBox comboBox_empleadoAsignado;
+        private ComboBox comboBox_estado;
+        private Label label4;
     }
 }
