@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button_eliminarProyecto = new Button();
             button_editarProyecto = new Button();
             button_listaProyecto = new Button();
@@ -40,6 +43,7 @@
             Horas_Trabajadas = new DataGridViewTextBoxColumn();
             Horas_Totales = new DataGridViewTextBoxColumn();
             Fecha_Creacion = new DataGridViewTextBoxColumn();
+            Empleado_asignado = new DataGridViewTextBoxColumn();
             textBox_descripcion = new TextBox();
             textBox3 = new TextBox();
             textBox_horasTrabajadas = new TextBox();
@@ -54,6 +58,8 @@
             label_fecha_creacion_pro = new Label();
             date_creacion_proyecto = new DateTimePicker();
             panel2 = new Panel();
+            textBox_empleadoAsignado = new TextBox();
+            label6 = new Label();
             comboBox_estado = new ComboBox();
             label4 = new Label();
             panel4 = new Panel();
@@ -69,15 +75,13 @@
             label_gestion_tareas = new Label();
             panel6 = new Panel();
             dataGridView_tareas = new DataGridView();
-            Fecha_Inicio = new DataGridViewTextBoxColumn();
-            Estado_2 = new DataGridViewTextBoxColumn();
-            Horas = new DataGridViewTextBoxColumn();
-            Área = new DataGridViewTextBoxColumn();
-            Proyecto = new DataGridViewTextBoxColumn();
-            Empleado = new DataGridViewTextBoxColumn();
             button_listaTarea = new Button();
             button_editarTarea = new Button();
             button_eliminarTarea = new Button();
+            Proyecto_Asignado = new DataGridViewTextBoxColumn();
+            Personal_asignado = new DataGridViewTextBoxColumn();
+            Fecha_asignada = new DataGridViewTextBoxColumn();
+            Horas_asignadas = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).BeginInit();
             panel2.SuspendLayout();
@@ -129,10 +133,11 @@
             panel1.Controls.Add(button_editarProyecto);
             panel1.Controls.Add(button_eliminarProyecto);
             panel1.Controls.Add(dataGridView_proyectos);
-            panel1.Location = new Point(39, 34);
+            panel1.ForeColor = Color.Black;
+            panel1.Location = new Point(39, 28);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(702, 282);
+            panel1.Size = new Size(702, 296);
             panel1.TabIndex = 3;
             panel1.UseWaitCursor = true;
             // 
@@ -150,12 +155,37 @@
             // 
             // dataGridView_proyectos
             // 
-            dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion });
+            dataGridView_proyectos.BackgroundColor = SystemColors.Window;
+            dataGridView_proyectos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Blue;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView_proyectos.ColumnHeadersHeight = 30;
+            dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion, Empleado_asignado });
+            dataGridView_proyectos.EnableHeadersVisualStyles = false;
+            dataGridView_proyectos.GridColor = Color.Blue;
             dataGridView_proyectos.Location = new Point(16, 11);
             dataGridView_proyectos.Margin = new Padding(3, 2, 3, 2);
             dataGridView_proyectos.Name = "dataGridView_proyectos";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_proyectos.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridView_proyectos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_proyectos.RowTemplate.Height = 29;
             dataGridView_proyectos.Size = new Size(668, 225);
             dataGridView_proyectos.TabIndex = 5;
@@ -204,12 +234,18 @@
             Fecha_Creacion.Name = "Fecha_Creacion";
             Fecha_Creacion.Width = 125;
             // 
+            // Empleado_asignado
+            // 
+            Empleado_asignado.HeaderText = "Empleado_asignado";
+            Empleado_asignado.Name = "Empleado_asignado";
+            // 
             // textBox_descripcion
             // 
-            textBox_descripcion.Location = new Point(158, 64);
+            textBox_descripcion.Location = new Point(156, 66);
             textBox_descripcion.Margin = new Padding(3, 2, 3, 2);
+            textBox_descripcion.Multiline = true;
             textBox_descripcion.Name = "textBox_descripcion";
-            textBox_descripcion.Size = new Size(295, 23);
+            textBox_descripcion.Size = new Size(295, 33);
             textBox_descripcion.TabIndex = 7;
             textBox_descripcion.UseWaitCursor = true;
             // 
@@ -222,7 +258,7 @@
             // 
             // textBox_horasTrabajadas
             // 
-            textBox_horasTrabajadas.Location = new Point(158, 121);
+            textBox_horasTrabajadas.Location = new Point(156, 132);
             textBox_horasTrabajadas.Margin = new Padding(3, 2, 3, 2);
             textBox_horasTrabajadas.Name = "textBox_horasTrabajadas";
             textBox_horasTrabajadas.Size = new Size(295, 23);
@@ -232,10 +268,11 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Variable Small", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.CornflowerBlue;
-            label1.Location = new Point(22, 9);
+            label1.Location = new Point(15, 9);
             label1.Name = "label1";
-            label1.Size = new Size(118, 15);
+            label1.Size = new Size(172, 21);
             label1.TabIndex = 5;
             label1.Text = "Gestion de proyectos";
             label1.UseWaitCursor = true;
@@ -243,7 +280,7 @@
             // 
             // textBox_horasTotales
             // 
-            textBox_horasTotales.Location = new Point(158, 148);
+            textBox_horasTotales.Location = new Point(156, 159);
             textBox_horasTotales.Margin = new Padding(3, 2, 3, 2);
             textBox_horasTotales.Name = "textBox_horasTotales";
             textBox_horasTotales.Size = new Size(295, 23);
@@ -252,7 +289,7 @@
             // 
             // textBox_nombreProyecto
             // 
-            textBox_nombreProyecto.Location = new Point(158, 37);
+            textBox_nombreProyecto.Location = new Point(156, 39);
             textBox_nombreProyecto.Margin = new Padding(3, 2, 3, 2);
             textBox_nombreProyecto.Name = "textBox_nombreProyecto";
             textBox_nombreProyecto.Size = new Size(295, 23);
@@ -261,32 +298,37 @@
             // 
             // button_guardarProyecto
             // 
-            button_guardarProyecto.Location = new Point(326, 219);
+            button_guardarProyecto.BackColor = SystemColors.Highlight;
+            button_guardarProyecto.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button_guardarProyecto.ForeColor = Color.Transparent;
+            button_guardarProyecto.Location = new Point(323, 245);
             button_guardarProyecto.Margin = new Padding(3, 2, 3, 2);
             button_guardarProyecto.Name = "button_guardarProyecto";
-            button_guardarProyecto.Size = new Size(125, 41);
+            button_guardarProyecto.Size = new Size(128, 43);
             button_guardarProyecto.TabIndex = 11;
             button_guardarProyecto.Text = "Guardar";
-            button_guardarProyecto.UseVisualStyleBackColor = true;
+            button_guardarProyecto.UseVisualStyleBackColor = false;
             button_guardarProyecto.UseWaitCursor = true;
             button_guardarProyecto.Click += button_guardarProyecto_Click;
             // 
             // label_nombre_pro
             // 
             label_nombre_pro.AutoSize = true;
-            label_nombre_pro.Location = new Point(48, 45);
+            label_nombre_pro.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label_nombre_pro.Location = new Point(14, 40);
             label_nombre_pro.Name = "label_nombre_pro";
-            label_nombre_pro.Size = new Size(51, 15);
+            label_nombre_pro.Size = new Size(139, 17);
             label_nombre_pro.TabIndex = 12;
-            label_nombre_pro.Text = "Nombre";
+            label_nombre_pro.Text = "Nombre del proyecto";
             label_nombre_pro.UseWaitCursor = true;
             // 
             // label_horas_totales_pro
             // 
             label_horas_totales_pro.AutoSize = true;
-            label_horas_totales_pro.Location = new Point(48, 153);
+            label_horas_totales_pro.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label_horas_totales_pro.Location = new Point(14, 160);
             label_horas_totales_pro.Name = "label_horas_totales_pro";
-            label_horas_totales_pro.Size = new Size(77, 15);
+            label_horas_totales_pro.Size = new Size(92, 17);
             label_horas_totales_pro.TabIndex = 13;
             label_horas_totales_pro.Text = "Horas Totales";
             label_horas_totales_pro.TextAlign = ContentAlignment.TopRight;
@@ -295,9 +337,10 @@
             // label_horas_trabajadas_pro
             // 
             label_horas_trabajadas_pro.AutoSize = true;
-            label_horas_trabajadas_pro.Location = new Point(48, 126);
+            label_horas_trabajadas_pro.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label_horas_trabajadas_pro.Location = new Point(14, 133);
             label_horas_trabajadas_pro.Name = "label_horas_trabajadas_pro";
-            label_horas_trabajadas_pro.Size = new Size(96, 15);
+            label_horas_trabajadas_pro.Size = new Size(114, 17);
             label_horas_trabajadas_pro.TabIndex = 14;
             label_horas_trabajadas_pro.Text = "Horas Trabajadas";
             label_horas_trabajadas_pro.UseWaitCursor = true;
@@ -305,9 +348,10 @@
             // label_descripcion_pro
             // 
             label_descripcion_pro.AutoSize = true;
-            label_descripcion_pro.Location = new Point(48, 69);
+            label_descripcion_pro.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label_descripcion_pro.Location = new Point(14, 67);
             label_descripcion_pro.Name = "label_descripcion_pro";
-            label_descripcion_pro.Size = new Size(69, 15);
+            label_descripcion_pro.Size = new Size(80, 17);
             label_descripcion_pro.TabIndex = 16;
             label_descripcion_pro.Text = "Descripcion";
             label_descripcion_pro.UseWaitCursor = true;
@@ -315,16 +359,17 @@
             // label_fecha_creacion_pro
             // 
             label_fecha_creacion_pro.AutoSize = true;
-            label_fecha_creacion_pro.Location = new Point(48, 181);
+            label_fecha_creacion_pro.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label_fecha_creacion_pro.Location = new Point(15, 191);
             label_fecha_creacion_pro.Name = "label_fecha_creacion_pro";
-            label_fecha_creacion_pro.Size = new Size(88, 15);
+            label_fecha_creacion_pro.Size = new Size(100, 17);
             label_fecha_creacion_pro.TabIndex = 17;
             label_fecha_creacion_pro.Text = "Fecha Creacion";
             label_fecha_creacion_pro.UseWaitCursor = true;
             // 
             // date_creacion_proyecto
             // 
-            date_creacion_proyecto.Location = new Point(158, 176);
+            date_creacion_proyecto.Location = new Point(156, 187);
             date_creacion_proyecto.Name = "date_creacion_proyecto";
             date_creacion_proyecto.Size = new Size(295, 23);
             date_creacion_proyecto.TabIndex = 20;
@@ -332,6 +377,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(textBox_empleadoAsignado);
+            panel2.Controls.Add(label6);
             panel2.Controls.Add(comboBox_estado);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(date_creacion_proyecto);
@@ -346,17 +393,38 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(textBox_horasTrabajadas);
             panel2.Controls.Add(textBox_descripcion);
-            panel2.Location = new Point(745, 36);
+            panel2.ForeColor = Color.Black;
+            panel2.Location = new Point(745, 30);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(462, 280);
+            panel2.Size = new Size(462, 294);
             panel2.TabIndex = 11;
             panel2.UseWaitCursor = true;
+            panel2.Paint += panel2_Paint;
+            // 
+            // textBox_empleadoAsignado
+            // 
+            textBox_empleadoAsignado.Location = new Point(156, 217);
+            textBox_empleadoAsignado.Name = "textBox_empleadoAsignado";
+            textBox_empleadoAsignado.Size = new Size(295, 23);
+            textBox_empleadoAsignado.TabIndex = 24;
+            textBox_empleadoAsignado.UseWaitCursor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(14, 218);
+            label6.Name = "label6";
+            label6.Size = new Size(131, 17);
+            label6.TabIndex = 23;
+            label6.Text = "Empleado Asignado";
+            label6.UseWaitCursor = true;
             // 
             // comboBox_estado
             // 
             comboBox_estado.FormattingEnabled = true;
-            comboBox_estado.Location = new Point(158, 92);
+            comboBox_estado.Location = new Point(156, 104);
             comboBox_estado.Name = "comboBox_estado";
             comboBox_estado.Size = new Size(295, 23);
             comboBox_estado.TabIndex = 22;
@@ -365,9 +433,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(48, 97);
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(14, 104);
             label4.Name = "label4";
-            label4.Size = new Size(42, 15);
+            label4.Size = new Size(49, 17);
             label4.TabIndex = 21;
             label4.Text = "Estado";
             label4.UseWaitCursor = true;
@@ -384,10 +453,10 @@
             panel4.Controls.Add(label_fecha_inicio_tarea);
             panel4.Controls.Add(button_guardarTarea);
             panel4.Controls.Add(label_gestion_tareas);
-            panel4.Location = new Point(745, 334);
+            panel4.Location = new Point(745, 332);
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(460, 332);
+            panel4.Size = new Size(460, 334);
             panel4.TabIndex = 13;
             panel4.UseWaitCursor = true;
             // 
@@ -399,6 +468,7 @@
             comboBox_empleadoAsignado.Size = new Size(293, 23);
             comboBox_empleadoAsignado.TabIndex = 27;
             comboBox_empleadoAsignado.UseWaitCursor = true;
+            comboBox_empleadoAsignado.SelectedIndexChanged += comboBox_empleadoAsignado_SelectedIndexChanged;
             // 
             // comboBox_proyectoTarea
             // 
@@ -468,7 +538,7 @@
             // 
             // button_guardarTarea
             // 
-            button_guardarTarea.Location = new Point(326, 277);
+            button_guardarTarea.Location = new Point(323, 277);
             button_guardarTarea.Margin = new Padding(3, 2, 3, 2);
             button_guardarTarea.Name = "button_guardarTarea";
             button_guardarTarea.Size = new Size(127, 41);
@@ -505,7 +575,8 @@
             // dataGridView_tareas
             // 
             dataGridView_tareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_tareas.Columns.AddRange(new DataGridViewColumn[] { Fecha_Inicio, Estado_2, Horas, Área, Proyecto, Empleado });
+            dataGridView_tareas.Columns.AddRange(new DataGridViewColumn[] { Proyecto_Asignado, Personal_asignado, Fecha_asignada, Horas_asignadas });
+            dataGridView_tareas.GridColor = Color.Blue;
             dataGridView_tareas.Location = new Point(18, 10);
             dataGridView_tareas.Margin = new Padding(3, 2, 3, 2);
             dataGridView_tareas.Name = "dataGridView_tareas";
@@ -514,36 +585,7 @@
             dataGridView_tareas.Size = new Size(668, 284);
             dataGridView_tareas.TabIndex = 6;
             dataGridView_tareas.UseWaitCursor = true;
-            // 
-            // Fecha_Inicio
-            // 
-            Fecha_Inicio.HeaderText = "Fecha_Inicio";
-            Fecha_Inicio.Name = "Fecha_Inicio";
-            // 
-            // Estado_2
-            // 
-            Estado_2.HeaderText = "Estado";
-            Estado_2.Name = "Estado_2";
-            // 
-            // Horas
-            // 
-            Horas.HeaderText = "Horas";
-            Horas.Name = "Horas";
-            // 
-            // Área
-            // 
-            Área.HeaderText = "Área";
-            Área.Name = "Área";
-            // 
-            // Proyecto
-            // 
-            Proyecto.HeaderText = "Proyecto";
-            Proyecto.Name = "Proyecto";
-            // 
-            // Empleado
-            // 
-            Empleado.HeaderText = "Empleado";
-            Empleado.Name = "Empleado";
+            dataGridView_tareas.CellContentClick += dataGridView_tareas_CellContentClick;
             // 
             // button_listaTarea
             // 
@@ -577,6 +619,26 @@
             button_eliminarTarea.Text = "Eliminar";
             button_eliminarTarea.UseVisualStyleBackColor = true;
             button_eliminarTarea.UseWaitCursor = true;
+            // 
+            // Proyecto_Asignado
+            // 
+            Proyecto_Asignado.HeaderText = "Poyecto Asignado";
+            Proyecto_Asignado.Name = "Proyecto_Asignado";
+            // 
+            // Personal_asignado
+            // 
+            Personal_asignado.HeaderText = "Personal Asignado";
+            Personal_asignado.Name = "Personal_asignado";
+            // 
+            // Fecha_asignada
+            // 
+            Fecha_asignada.HeaderText = "Fecha Asignada";
+            Fecha_asignada.Name = "Fecha_asignada";
+            // 
+            // Horas_asignadas
+            // 
+            Horas_asignadas.HeaderText = "Horas Asignadas";
+            Horas_asignadas.Name = "Horas_asignadas";
             // 
             // Form1
             // 
@@ -649,16 +711,17 @@
         private DataGridViewTextBoxColumn Horas_Totales;
         private DataGridViewTextBoxColumn Fecha_Creacion;
         private NumericUpDown numericUpDown_horasTarea;
-        private DataGridViewTextBoxColumn Fecha_Inicio;
-        private DataGridViewTextBoxColumn Estado_2;
-        private DataGridViewTextBoxColumn Horas;
-        private DataGridViewTextBoxColumn Área;
-        private DataGridViewTextBoxColumn Proyecto;
-        private DataGridViewTextBoxColumn Empleado;
         private Button button_finEdicion;
         private ComboBox comboBox_proyectoTarea;
         private ComboBox comboBox_empleadoAsignado;
         private ComboBox comboBox_estado;
         private Label label4;
+        private TextBox textBox_empleadoAsignado;
+        private Label label6;
+        private DataGridViewTextBoxColumn Empleado_asignado;
+        private DataGridViewTextBoxColumn Proyecto_Asignado;
+        private DataGridViewTextBoxColumn Personal_asignado;
+        private DataGridViewTextBoxColumn Fecha_asignada;
+        private DataGridViewTextBoxColumn Horas_asignadas;
     }
 }
