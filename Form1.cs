@@ -1,6 +1,3 @@
-using Infolutions.http;
-using Newtonsoft.Json;
-
 namespace Proyecto_1
 {
     public partial class Form1 : Form
@@ -16,9 +13,7 @@ namespace Proyecto_1
             CargarProyectosEnComboBox();
 
             comboBox_estado.Items.AddRange(new string[] { "Pendiente", "En Progreso", "Finalizado" });
-            comboBox_estado.SelectedIndex = 0;
-
-            CargarEmpleadosEnComboBox();
+            comboBox_estado.SelectedIndex = 0; 
 
             //configurar la columna de estado como ComboBox en el DataGridView
             DataGridViewComboBoxColumn estadoColumn = new DataGridViewComboBoxColumn
@@ -28,7 +23,6 @@ namespace Proyecto_1
                 DataSource = new string[] { "Pendiente", "En Progreso", "Finalizado" },
                 DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox
             };
-
 
 
         }
@@ -50,12 +44,10 @@ namespace Proyecto_1
         {
             textBox_nombreProyecto.Clear();
             textBox_descripcion.Clear();
-            comboBox_estado.SelectedIndex = 0;
             comboBox_estado.Items.Clear();
             textBox_horasTrabajadas.Clear();
             textBox_horasTotales.Clear();
             date_creacion_proyecto.Value = DateTime.Now;
-            textBox_empleadoAsignado.Clear();
         }
         private void LimpiarCamposTarea()
         {
@@ -63,11 +55,10 @@ namespace Proyecto_1
             numericUpDown_horasTarea.Value = 0;
             comboBox_proyectoTarea.SelectedIndex = -1;
             comboBox_empleadoAsignado.SelectedIndex = -1;
-            comboBox_empleadoAsignado.SelectedIndex = -1;  // <-- Agregar esta línea
         }
 
 
-        private async void button_guardarProyecto_Click(object sender, EventArgs e)
+        private void button_guardarProyecto_Click(object sender, EventArgs e)
         {
 
             // recoger los valores de los campos de texto :D
@@ -78,56 +69,18 @@ namespace Proyecto_1
             int horasTrabajadas;
             int horasTotales;
             DateTime fechaCreacion = date_creacion_proyecto.Value;
-            string empleado_asignado = textBox_empleadoAsignado.Text;
 
             // validar los campos numéricos o.o
 
-
             if (!int.TryParse(textBox_horasTrabajadas.Text, out horasTrabajadas) ||
-            !int.TryParse(textBox_horasTotales.Text, out horasTotales))
+                !int.TryParse(textBox_horasTotales.Text, out horasTotales))
             {
                 MessageBox.Show("Por favor, ingrese números válidos para las horas trabajadas y totales.");
                 return;
             }
 
-            //VARIABLE DE API 
-            var proyecto = new
-            {
-                nombreProyecto,
-                descripcion,
-                estadoProyecto,
-                horasTrabajadas,
-                horasTotales,
-                fechaCreacion = fechaCreacion.ToString("yyyy-MM-dd"),
-                empleado_asignado
-            };
-
-            // Serializar el objeto a JSON
-            string jsonProyecto = JsonConvert.SerializeObject(proyecto);
-
-            // Enviar el JSON a la API
-            ConexionAApi api = new ConexionAApi();
-            RespuestaApi respuesta = await api.SendTransaction("/ruta-del-endpoint-proyectos", jsonProyecto, "POST");
-
-            // Verificar la respuesta de la API
-            if (respuesta.Code == 200)
-            {
-                // Añadir los datos a la vista
-                dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString(), empleado_asignado);
-
-                // Limpiar campos
-                LimpiarCamposProyecto();
-                CargarProyectosEnComboBox();
-            }
-            else
-            {
-                MessageBox.Show($"Error al guardar el proyecto: {respuesta.Message}");
-            }
-
-
-
             // añadir los datos a la vista 
-            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString(), empleado_asignado);
+            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString());
 
 
             LimpiarCamposProyecto();
@@ -138,9 +91,9 @@ namespace Proyecto_1
         private void button_eliminarProyecto_Click(object sender, EventArgs e)
         {
             // verifica si hay una fila seleccionada
-            if (dataGridView_proyectos.SelectedRows.Count > 0)  // pide confirmación para eliminar
+            if (dataGridView_proyectos.SelectedRows.Count > 0)
             {
- 
+                // pide confirmación para eliminar
                 DialogResult confirmacion = MessageBox.Show(
                     "¿Seguro que quieres eliminar este proyecto?",
                     "Confirmar Eliminación",
@@ -148,9 +101,8 @@ namespace Proyecto_1
                     MessageBoxIcon.Question
                 );
 
-
-                
-                if (confirmacion == DialogResult.Yes) // se elimina la fila seleccionada
+                // se elimina la fila seleccionada
+                if (confirmacion == DialogResult.Yes)
                 {
                     dataGridView_proyectos.Rows.RemoveAt(dataGridView_proyectos.SelectedRows[0].Index);
                 }
@@ -161,9 +113,9 @@ namespace Proyecto_1
             }
         }
 
-        private void button_editarProyecto_Click(object sender, EventArgs e) // edicion de celdas si hay una fila seleccionada
+        private void button_editarProyecto_Click(object sender, EventArgs e)
         {
-            
+            // habilita la edicion de celdas si hay una fila seleccionada
             if (dataGridView_proyectos.SelectedRows.Count > 0)
             {
                 isEditing = true;
@@ -178,18 +130,18 @@ namespace Proyecto_1
             CargarProyectosEnComboBox();
         }
 
-        private void dataGridView_proyectos_CellContentClick(object sender, DataGridViewCellEventArgs e) //Error de tarea boton editar
+        private void dataGridView_proyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            // bloquea la edición si no se ha activado el modo de edición
             if (!isEditing)
             {
                 MessageBox.Show("Para editar, presione el botón 'Editar'.", "Edición no permitida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void button_finEdicion_Click(object sender, EventArgs e) //edicion de tareas boton editar 
+        private void button_finEdicion_Click(object sender, EventArgs e)
         {
-            
+            // Finaliza el modo de edición proyecto
             if (isEditing)
             {
                 isEditing = false;
@@ -207,35 +159,25 @@ namespace Proyecto_1
 
 
 
-        //-------------------------------------------------------------------------------------------------------------------------------------------------
-        
-        //FUNCIONES DE TAREAS 
+        //COMPORTAMIENTO TAREAS
 
 
 
-        private async void button_guardarTarea_Click(object sender, EventArgs e)
+        private void button_guardarTarea_Click(object sender, EventArgs e)
         {
-
+            // Verificar que haya un proyecto y un empleado seleccionado en los ComboBoxes
             string proyectoSeleccionado = comboBox_proyectoTarea.SelectedItem?.ToString();
             string empleadoAsignado = comboBox_empleadoAsignado.SelectedItem?.ToString();
             DateTime fechaInicio = date_fecha_inicio_tarea.Value;
             int horasTarea = (int)numericUpDown_horasTarea.Value;
 
-           
-            if (string.IsNullOrEmpty(proyectoSeleccionado))  // Validar que los campos necesarios no estén vacíos
+            // Validar que los campos necesarios no estén vacíos
+            if (string.IsNullOrEmpty(proyectoSeleccionado))
             {
                 MessageBox.Show("Seleccione un proyecto para la tarea.", "Proyecto no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrEmpty(empleadoAsignado)) //valida empleado asignado 
-            {
-                MessageBox.Show("Seleccione un empleado asignado.", "Empleado no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            
-
-   
             if (string.IsNullOrEmpty(empleadoAsignado))
             {
                 MessageBox.Show("Seleccione un empleado asignado.", "Empleado no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -251,7 +193,6 @@ namespace Proyecto_1
         // Método para cargar proyectos en comboBox_proyectoTarea desde dataGridView_proyectos
 
 
-        // Método para cargar proyectos en comboBox_proyectoTarea desde dataGridView_proyectos
         // Evento para mostrar las tareas asociadas al proyecto seleccionado en dataGridView_proyectos
         private void dataGridView_proyectos_SelectionChanged(object sender, EventArgs e)
         {
@@ -264,15 +205,15 @@ namespace Proyecto_1
 
 
 
-        private void comboBox_proyectoTarea_SelectedIndexChanged(object sender, EventArgs e) // Obtener el proyecto seleccionado en el ComboBox
+        private void comboBox_proyectoTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            // Obtener el proyecto seleccionado en el ComboBox
             string proyectoSeleccionado = comboBox_proyectoTarea.SelectedItem?.ToString();
 
-            
-            if (!string.IsNullOrEmpty(proyectoSeleccionado)) // Verificar que se haya seleccionado un proyecto
+            // Verificar que se haya seleccionado un proyecto
+            if (!string.IsNullOrEmpty(proyectoSeleccionado))
             {
-                
+                // Mostrar las tareas asociadas al proyecto seleccionado
                 MostrarTareasAsociadas(proyectoSeleccionado);
             }
         }
@@ -285,7 +226,7 @@ namespace Proyecto_1
 
                 if (row.Cells[0].Value != null)
                 {
-                   
+                    // Añadir el nombre del proyecto al ComboBox
                     comboBox_proyectoTarea.Items.Add(row.Cells[0].Value.ToString());
                 }
             }
@@ -305,48 +246,6 @@ namespace Proyecto_1
             }
         }
 
-        private void CargarEmpleadosEnComboBox()
-        {
-            // Supongamos que tienes una lista de empleados (puede venir de una base de datos, un archivo, etc.)
-            List<string> empleados = new List<string>
-    {
-        "Juan Pérez",
-        "María García",
-        "Carlos López",
-        "Ana Rodríguez"
-    };
 
-            // Limpiar el comboBox antes de agregar nuevos items
-            comboBox_empleadoAsignado.Items.Clear();
-
-            // Añadir los empleados al comboBox
-            foreach (string empleado in empleados)
-            {
-                comboBox_empleadoAsignado.Items.Add(empleado);
-            }
-
-            // Opcional: seleccionar el primer elemento por defecto
-            if (comboBox_empleadoAsignado.Items.Count > 0)
-            {
-                comboBox_empleadoAsignado.SelectedIndex = 0;
-            }
-        }
-
-
-        private void comboBox_empleadoAsignado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView_tareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        
-        }
     }
 }
