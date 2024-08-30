@@ -213,7 +213,7 @@ namespace Proyecto_1
 
 
 
-        private async void button_guardarTarea_Click(object sender, EventArgs e)
+        private void button_guardarTarea_Click(object sender, EventArgs e)
         {
 
             string proyectoSeleccionado = comboBox_proyectoTarea.SelectedItem?.ToString();
