@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             button_eliminarProyecto = new Button();
             button_editarProyecto = new Button();
             button_listaProyecto = new Button();
@@ -63,6 +63,8 @@
             comboBox_estado = new ComboBox();
             label4 = new Label();
             panel4 = new Panel();
+            comboBox_area = new ComboBox();
+            label7 = new Label();
             comboBox_empleadoAsignado = new ComboBox();
             comboBox_proyectoTarea = new ComboBox();
             label3 = new Label();
@@ -75,13 +77,13 @@
             label_gestion_tareas = new Label();
             panel6 = new Panel();
             dataGridView_tareas = new DataGridView();
-            button_listaTarea = new Button();
-            button_editarTarea = new Button();
-            button_eliminarTarea = new Button();
             Proyecto_Asignado = new DataGridViewTextBoxColumn();
             Personal_asignado = new DataGridViewTextBoxColumn();
             Fecha_asignada = new DataGridViewTextBoxColumn();
             Horas_asignadas = new DataGridViewTextBoxColumn();
+            button_listaTarea = new Button();
+            button_editarTarea = new Button();
+            button_eliminarTarea = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_proyectos).BeginInit();
             panel2.SuspendLayout();
@@ -157,14 +159,14 @@
             // 
             dataGridView_proyectos.BackgroundColor = SystemColors.Window;
             dataGridView_proyectos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Blue;
-            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_proyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Blue;
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView_proyectos.ColumnHeadersHeight = 30;
             dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion, Empleado_asignado });
@@ -173,19 +175,19 @@
             dataGridView_proyectos.Location = new Point(16, 11);
             dataGridView_proyectos.Margin = new Padding(3, 2, 3, 2);
             dataGridView_proyectos.Name = "dataGridView_proyectos";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView_proyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView_proyectos.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridView_proyectos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridView_proyectos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView_proyectos.RowTemplate.Height = 29;
             dataGridView_proyectos.Size = new Size(668, 225);
             dataGridView_proyectos.TabIndex = 5;
@@ -443,6 +445,8 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(comboBox_area);
+            panel4.Controls.Add(label7);
             panel4.Controls.Add(comboBox_empleadoAsignado);
             panel4.Controls.Add(comboBox_proyectoTarea);
             panel4.Controls.Add(label3);
@@ -460,10 +464,29 @@
             panel4.TabIndex = 13;
             panel4.UseWaitCursor = true;
             // 
+            // comboBox_area
+            // 
+            comboBox_area.FormattingEnabled = true;
+            comboBox_area.Location = new Point(158, 95);
+            comboBox_area.Name = "comboBox_area";
+            comboBox_area.Size = new Size(293, 23);
+            comboBox_area.TabIndex = 29;
+            comboBox_area.UseWaitCursor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(29, 104);
+            label7.Name = "label7";
+            label7.Size = new Size(31, 15);
+            label7.TabIndex = 28;
+            label7.Text = "Area";
+            label7.UseWaitCursor = true;
+            // 
             // comboBox_empleadoAsignado
             // 
             comboBox_empleadoAsignado.FormattingEnabled = true;
-            comboBox_empleadoAsignado.Location = new Point(158, 133);
+            comboBox_empleadoAsignado.Location = new Point(158, 158);
             comboBox_empleadoAsignado.Name = "comboBox_empleadoAsignado";
             comboBox_empleadoAsignado.Size = new Size(293, 23);
             comboBox_empleadoAsignado.TabIndex = 27;
@@ -473,7 +496,7 @@
             // comboBox_proyectoTarea
             // 
             comboBox_proyectoTarea.FormattingEnabled = true;
-            comboBox_proyectoTarea.Location = new Point(158, 102);
+            comboBox_proyectoTarea.Location = new Point(158, 127);
             comboBox_proyectoTarea.Name = "comboBox_proyectoTarea";
             comboBox_proyectoTarea.Size = new Size(293, 23);
             comboBox_proyectoTarea.TabIndex = 26;
@@ -483,7 +506,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 136);
+            label3.Location = new Point(29, 161);
             label3.Name = "label3";
             label3.Size = new Size(113, 15);
             label3.TabIndex = 23;
@@ -509,7 +532,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 105);
+            label2.Location = new Point(29, 130);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
             label2.TabIndex = 17;
@@ -587,6 +610,26 @@
             dataGridView_tareas.UseWaitCursor = true;
             dataGridView_tareas.CellContentClick += dataGridView_tareas_CellContentClick;
             // 
+            // Proyecto_Asignado
+            // 
+            Proyecto_Asignado.HeaderText = "Poyecto Asignado";
+            Proyecto_Asignado.Name = "Proyecto_Asignado";
+            // 
+            // Personal_asignado
+            // 
+            Personal_asignado.HeaderText = "Personal Asignado";
+            Personal_asignado.Name = "Personal_asignado";
+            // 
+            // Fecha_asignada
+            // 
+            Fecha_asignada.HeaderText = "Fecha Asignada";
+            Fecha_asignada.Name = "Fecha_asignada";
+            // 
+            // Horas_asignadas
+            // 
+            Horas_asignadas.HeaderText = "Horas Asignadas";
+            Horas_asignadas.Name = "Horas_asignadas";
+            // 
             // button_listaTarea
             // 
             button_listaTarea.Location = new Point(604, 298);
@@ -619,26 +662,6 @@
             button_eliminarTarea.Text = "Eliminar";
             button_eliminarTarea.UseVisualStyleBackColor = true;
             button_eliminarTarea.UseWaitCursor = true;
-            // 
-            // Proyecto_Asignado
-            // 
-            Proyecto_Asignado.HeaderText = "Poyecto Asignado";
-            Proyecto_Asignado.Name = "Proyecto_Asignado";
-            // 
-            // Personal_asignado
-            // 
-            Personal_asignado.HeaderText = "Personal Asignado";
-            Personal_asignado.Name = "Personal_asignado";
-            // 
-            // Fecha_asignada
-            // 
-            Fecha_asignada.HeaderText = "Fecha Asignada";
-            Fecha_asignada.Name = "Fecha_asignada";
-            // 
-            // Horas_asignadas
-            // 
-            Horas_asignadas.HeaderText = "Horas Asignadas";
-            Horas_asignadas.Name = "Horas_asignadas";
             // 
             // Form1
             // 
@@ -723,5 +746,7 @@
         private DataGridViewTextBoxColumn Personal_asignado;
         private DataGridViewTextBoxColumn Fecha_asignada;
         private DataGridViewTextBoxColumn Horas_asignadas;
+        private ComboBox comboBox_area;
+        private Label label7;
     }
 }

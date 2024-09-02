@@ -20,6 +20,8 @@ namespace Proyecto_1
 
             CargarEmpleadosEnComboBox();
 
+            CargarAreasEnComboBox();
+
             //configurar la columna de estado como ComboBox en el DataGridView
             DataGridViewComboBoxColumn estadoColumn = new DataGridViewComboBoxColumn
             {
@@ -140,7 +142,7 @@ namespace Proyecto_1
             // verifica si hay una fila seleccionada
             if (dataGridView_proyectos.SelectedRows.Count > 0)  // pide confirmación para eliminar
             {
- 
+
                 DialogResult confirmacion = MessageBox.Show(
                     "¿Seguro que quieres eliminar este proyecto?",
                     "Confirmar Eliminación",
@@ -149,7 +151,7 @@ namespace Proyecto_1
                 );
 
 
-                
+
                 if (confirmacion == DialogResult.Yes) // se elimina la fila seleccionada
                 {
                     dataGridView_proyectos.Rows.RemoveAt(dataGridView_proyectos.SelectedRows[0].Index);
@@ -163,7 +165,7 @@ namespace Proyecto_1
 
         private void button_editarProyecto_Click(object sender, EventArgs e) // edicion de celdas si hay una fila seleccionada
         {
-            
+
             if (dataGridView_proyectos.SelectedRows.Count > 0)
             {
                 isEditing = true;
@@ -180,7 +182,7 @@ namespace Proyecto_1
 
         private void dataGridView_proyectos_CellContentClick(object sender, DataGridViewCellEventArgs e) //Error de tarea boton editar
         {
-           
+
             if (!isEditing)
             {
                 MessageBox.Show("Para editar, presione el botón 'Editar'.", "Edición no permitida", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -189,7 +191,7 @@ namespace Proyecto_1
 
         private void button_finEdicion_Click(object sender, EventArgs e) //edicion de tareas boton editar 
         {
-            
+
             if (isEditing)
             {
                 isEditing = false;
@@ -208,7 +210,7 @@ namespace Proyecto_1
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        
+
         //FUNCIONES DE TAREAS 
 
 
@@ -216,12 +218,13 @@ namespace Proyecto_1
         private void button_guardarTarea_Click(object sender, EventArgs e)
         {
 
+            
             string proyectoSeleccionado = comboBox_proyectoTarea.SelectedItem?.ToString();
             string empleadoAsignado = comboBox_empleadoAsignado.SelectedItem?.ToString();
             DateTime fechaInicio = date_fecha_inicio_tarea.Value;
             int horasTarea = (int)numericUpDown_horasTarea.Value;
 
-           
+
             if (string.IsNullOrEmpty(proyectoSeleccionado))  // Validar que los campos necesarios no estén vacíos
             {
                 MessageBox.Show("Seleccione un proyecto para la tarea.", "Proyecto no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -233,9 +236,9 @@ namespace Proyecto_1
                 MessageBox.Show("Seleccione un empleado asignado.", "Empleado no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
 
-   
+
+
             if (string.IsNullOrEmpty(empleadoAsignado))
             {
                 MessageBox.Show("Seleccione un empleado asignado.", "Empleado no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -245,37 +248,62 @@ namespace Proyecto_1
             // Guardar la nueva tarea en el dataGridView_tareas
             dataGridView_tareas.Rows.Add(proyectoSeleccionado, empleadoAsignado, fechaInicio.ToShortDateString(), horasTarea);
 
-            // Limpiar los campos de la tarea después de guardar
+           
             LimpiarCamposTarea();
         }
-        // Método para cargar proyectos en comboBox_proyectoTarea desde dataGridView_proyectos
 
 
-        // Método para cargar proyectos en comboBox_proyectoTarea desde dataGridView_proyectos
+        // metodo para cargar proyectos en comboBox_proyectoTarea desde dataGridView_proyectos
         // Evento para mostrar las tareas asociadas al proyecto seleccionado en dataGridView_proyectos
         private void dataGridView_proyectos_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView_proyectos.SelectedRows.Count > 0)
             {
-                string proyectoSeleccionado = dataGridView_proyectos.SelectedRows[0].Cells[0].Value.ToString(); // Asumiendo que la primera columna es el nombre del proyecto
+                string proyectoSeleccionado = dataGridView_proyectos.SelectedRows[0].Cells[0].Value.ToString(); 
                 MostrarTareasAsociadas(proyectoSeleccionado);
             }
         }
 
 
 
-        private void comboBox_proyectoTarea_SelectedIndexChanged(object sender, EventArgs e) // Obtener el proyecto seleccionado en el ComboBox
+        private void comboBox_proyectoTarea_SelectedIndexChanged(object sender, EventArgs e) // obtener el proyecto seleccionado en el ComboBox
         {
-            
+
             string proyectoSeleccionado = comboBox_proyectoTarea.SelectedItem?.ToString();
 
-            
-            if (!string.IsNullOrEmpty(proyectoSeleccionado)) // Verificar que se haya seleccionado un proyecto
+
+            if (!string.IsNullOrEmpty(proyectoSeleccionado)) // verificar que se haya seleccionado un proyecto
             {
-                
+
                 MostrarTareasAsociadas(proyectoSeleccionado);
             }
         }
+        private void CargarAreasEnComboBox()
+        {
+            // definir las áreas
+            List<string> areas = new List<string>
+    {
+        "Hardware",
+        "Redes",
+    };
+
+            // limpiar el comboBox antes de agregar nuevos items
+            comboBox_area.Items.Clear();
+
+            // añadir las areas al comboBox
+            foreach (string area in areas)
+            {
+                comboBox_area.Items.Add(area);
+            }
+
+            //  seleccionar el primer elemento por defecto
+            if (comboBox_area.Items.Count > 0)
+            {
+                comboBox_area.SelectedIndex = 0;
+            }
+        }
+
+
         private void CargarProyectosEnComboBox()
         {
             comboBox_proyectoTarea.Items.Clear();
@@ -285,7 +313,7 @@ namespace Proyecto_1
 
                 if (row.Cells[0].Value != null)
                 {
-                   
+
                     comboBox_proyectoTarea.Items.Add(row.Cells[0].Value.ToString());
                 }
             }
@@ -316,8 +344,10 @@ namespace Proyecto_1
         "Ana Rodríguez"
     };
 
-            // Limpiar el comboBox antes de agregar nuevos items
-            comboBox_empleadoAsignado.Items.Clear();
+        
+
+                // Limpiar el comboBox antes de agregar nuevos items
+                comboBox_empleadoAsignado.Items.Clear();
 
             // Añadir los empleados al comboBox
             foreach (string empleado in empleados)
@@ -325,7 +355,7 @@ namespace Proyecto_1
                 comboBox_empleadoAsignado.Items.Add(empleado);
             }
 
-            // Opcional: seleccionar el primer elemento por defecto
+            //  seleccionar el primer elemento por defecto
             if (comboBox_empleadoAsignado.Items.Count > 0)
             {
                 comboBox_empleadoAsignado.SelectedIndex = 0;
