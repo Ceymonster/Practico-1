@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button_eliminarProyecto = new Button();
             button_editarProyecto = new Button();
             button_listaProyecto = new Button();
@@ -58,8 +58,6 @@
             label_fecha_creacion_pro = new Label();
             date_creacion_proyecto = new DateTimePicker();
             panel2 = new Panel();
-            textBox_empleadoAsignado = new TextBox();
-            label6 = new Label();
             comboBox_estado = new ComboBox();
             label4 = new Label();
             panel4 = new Panel();
@@ -159,35 +157,35 @@
             // 
             dataGridView_proyectos.BackgroundColor = SystemColors.Window;
             dataGridView_proyectos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Blue;
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView_proyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Blue;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_proyectos.ColumnHeadersHeight = 30;
             dataGridView_proyectos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView_proyectos.Columns.AddRange(new DataGridViewColumn[] { Nombre, Descripcion, Estado, Horas_Trabajadas, Horas_Totales, Fecha_Creacion, Empleado_asignado });
             dataGridView_proyectos.EnableHeadersVisualStyles = false;
             dataGridView_proyectos.GridColor = Color.Blue;
-            dataGridView_proyectos.Location = new Point(16, 11);
+            dataGridView_proyectos.Location = new Point(16, 10);
             dataGridView_proyectos.Margin = new Padding(3, 2, 3, 2);
             dataGridView_proyectos.Name = "dataGridView_proyectos";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView_proyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_proyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_proyectos.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridView_proyectos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridView_proyectos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_proyectos.RowTemplate.Height = 29;
             dataGridView_proyectos.Size = new Size(668, 225);
             dataGridView_proyectos.TabIndex = 5;
@@ -379,8 +377,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(textBox_empleadoAsignado);
-            panel2.Controls.Add(label6);
             panel2.Controls.Add(comboBox_estado);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(date_creacion_proyecto);
@@ -403,25 +399,6 @@
             panel2.TabIndex = 11;
             panel2.UseWaitCursor = true;
             panel2.Paint += panel2_Paint;
-            // 
-            // textBox_empleadoAsignado
-            // 
-            textBox_empleadoAsignado.Location = new Point(156, 217);
-            textBox_empleadoAsignado.Name = "textBox_empleadoAsignado";
-            textBox_empleadoAsignado.Size = new Size(295, 23);
-            textBox_empleadoAsignado.TabIndex = 24;
-            textBox_empleadoAsignado.UseWaitCursor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(14, 218);
-            label6.Name = "label6";
-            label6.Size = new Size(131, 17);
-            label6.TabIndex = 23;
-            label6.Text = "Empleado Asignado";
-            label6.UseWaitCursor = true;
             // 
             // comboBox_estado
             // 
@@ -739,8 +716,6 @@
         private ComboBox comboBox_empleadoAsignado;
         private ComboBox comboBox_estado;
         private Label label4;
-        private TextBox textBox_empleadoAsignado;
-        private Label label6;
         private DataGridViewTextBoxColumn Empleado_asignado;
         private DataGridViewTextBoxColumn Proyecto_Asignado;
         private DataGridViewTextBoxColumn Personal_asignado;

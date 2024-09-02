@@ -57,7 +57,7 @@ namespace Proyecto_1
             textBox_horasTrabajadas.Clear();
             textBox_horasTotales.Clear();
             date_creacion_proyecto.Value = DateTime.Now;
-            textBox_empleadoAsignado.Clear();
+
         }
         private void LimpiarCamposTarea()
         {
@@ -80,7 +80,7 @@ namespace Proyecto_1
             int horasTrabajadas;
             int horasTotales;
             DateTime fechaCreacion = date_creacion_proyecto.Value;
-            string empleado_asignado = textBox_empleadoAsignado.Text;
+
 
             // validar los campos numéricos o.o
 
@@ -101,7 +101,6 @@ namespace Proyecto_1
                 horasTrabajadas,
                 horasTotales,
                 fechaCreacion = fechaCreacion.ToString("yyyy-MM-dd"),
-                empleado_asignado
             };
 
             // Serializar el objeto a JSON
@@ -115,7 +114,7 @@ namespace Proyecto_1
             if (respuesta.Code == 200)
             {
                 // Añadir los datos a la vista
-                dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString(), empleado_asignado);
+                dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString());
 
                 // Limpiar campos
                 LimpiarCamposProyecto();
@@ -129,7 +128,7 @@ namespace Proyecto_1
 
 
             // añadir los datos a la vista 
-            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString(), empleado_asignado);
+            dataGridView_proyectos.Rows.Add(nombreProyecto, descripcion, estadoProyecto, horasTrabajadas, horasTotales, fechaCreacion.ToShortDateString());
 
 
             LimpiarCamposProyecto();
