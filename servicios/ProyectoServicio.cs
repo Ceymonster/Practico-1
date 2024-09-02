@@ -1,14 +1,14 @@
-﻿using Infolutions.http;
-using Infolutions.modelos;
+﻿using Proyecto_1.http;
+using Proyecto_1.modelos;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Infolutions.services
+namespace Proyecto_1.services
 {
     public class ProyectoServicio : ConexionAApi
     {
-        private readonly string groupKey = "/ejemplo";
+        private readonly string groupKey = "/x7Y8z9W0";
 
         // Método para obtener la lista de proyectos 
         public async Task<List<Proyecto>> Index()
@@ -32,7 +32,7 @@ namespace Infolutions.services
                 /* Aquí podrías validar si hay algun error con la respuesta según su código*/
                 if (respuestaApi.Code != 200)
                 {
-                    /* cualquier cosa que quieras hacer pa mostrar el error*/
+                    MessageBox.Show(respuestaApi.Message);
                 }
             }
             catch (Exception ex)
@@ -46,21 +46,30 @@ namespace Infolutions.services
         // Método para obtener un proyecto específico por ID (Read)
         public async Task<Proyecto> Show(int projectId)
         {
-            //no agregué el try catch porque ya está en el método Index el ejemplo
-            //no seas flojo, implementa el try catch en este método también
-            //si no lo haces, el programa se caerá si hay un error y no tendrás idea de qué pasó
+            try
+            {
+                string path = $"/projects/{projectId}{groupKey}";
+                string body = "";
+                var response = await SendTransaction(path, body, "GET");
 
-            string path = $"/projects/{projectId}{groupKey}";
-            string body = "";
-            var jsonRespuestaApi = await SendTransaction(path, body, "GET");
+                RespuestaProyecto respuestaApi = JsonSerializer.Deserialize<RespuestaProyecto>(response.Data.ToString());
 
-            RespuestaProyecto RespuestaApi = JsonSerializer.Deserialize<RespuestaProyecto>(jsonRespuestaApi.Data.ToString());
+                if (respuestaApi.Code != 200)
+                {
+                    MessageBox.Show(respuestaApi.Message);
+                }
 
-            return RespuestaApi.Data;
+                return respuestaApi.Data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
         // Método para crear un nuevo proyecto (Create)
-        public async Task<String> Create(object nuevoProyecto)
+        public async Task<string> Create(object nuevoProyecto)
         {
             string respuestaApi = null;
             string path = $"/projects{groupKey}";
@@ -69,11 +78,15 @@ namespace Infolutions.services
             {
                 // Serializar el objeto anónimo a JSON, ya que la api debe recibir ese formato, no un obj de .net
                 string proyectoJson = JsonSerializer.Serialize(nuevoProyecto);
-                var jsonRespuestaApi = await SendTransaction(path, proyectoJson, "POST");
+                var response = await SendTransaction(path, proyectoJson, "POST");
 
-                if (jsonRespuestaApi.Code == 201) //codigo http quiere decir que se creó el proyecto
+                if (response.Code == 201)
                 {
-                    respuestaApi = jsonRespuestaApi.Message;
+                    respuestaApi = response.Message;
+                }
+                else
+                {
+                    MessageBox.Show(response.Message);
                 }
             }
             catch (Exception ex)
@@ -84,7 +97,59 @@ namespace Infolutions.services
             return respuestaApi;
         }
 
+        // Método para actualizar un proyecto (Update)
+        public async Task<string> Update(int projectId, object proyectoActualizado)
+        {
+            string respuestaApi = null;
+            string path = $"/projects/{projectId}{groupKey}";
 
-        //implementa los métodos Update y Delete siguiendo el mismo patrón de los métodos anteriores
+            try
+            {
+                string proyectoJson = JsonSerializer.Serialize(proyectoActualizado);
+                var response = await SendTransaction(path, proyectoJson, "PUT");
+
+                if (response.Code == 200)
+                {
+                    respuestaApi = response.Message;
+                }
+                else
+                {
+                    MessageBox.Show(response.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            return respuestaApi;
+        }
+
+        // Método para eliminar un proyecto (Delete)
+        public async Task<string> Delete(int projectId)
+        {
+            string respuestaApi = null;
+            string path = $"/projects/{projectId}{groupKey}";
+
+            try
+            {
+                var response = await SendTransaction(path, "", "DELETE");
+
+                if (response.Code == 200)
+                {
+                    respuestaApi = response.Message;
+                }
+                else
+                {
+                    MessageBox.Show(response.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            return respuestaApi;
+        }
     }
 }

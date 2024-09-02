@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Infolutions.modelos
+namespace Proyecto_1.modelos
 {
     public class Proyecto
     {
@@ -31,3 +31,4 @@ namespace Infolutions.modelos
         public DateTime CreatedAt { get; set; }
     }
 }
+

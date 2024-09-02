@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 
-namespace Infolutions.http
+namespace Proyecto_1.http
 {
     public class ConexionAApi
     {
