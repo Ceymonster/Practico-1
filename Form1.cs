@@ -1,5 +1,7 @@
 using Proyecto_1.http;
 using Newtonsoft.Json;
+using Proyecto_1.modelos;
+using Proyecto_1.services;
 
 namespace Proyecto_1
 {
@@ -19,6 +21,10 @@ namespace Proyecto_1
             comboBox_estado.SelectedIndex = 0;
 
             CargarEmpleadosEnComboBox();
+
+
+            CargarProyectosDesdeApi();
+
 
             CargarAreasEnComboBox();
 
@@ -102,7 +108,7 @@ namespace Proyecto_1
                 horasTotales,
                 fechaCreacion = fechaCreacion.ToString("yyyy-MM-dd"),
             };
-
+            // DEJAR PARA INGRESAR SOLO NOMBRE, DESCRIPCIO Y HORAS TOTALES
             // Serializar el objeto a JSON
             string jsonProyecto = JsonConvert.SerializeObject(proyecto);
 
@@ -299,6 +305,34 @@ namespace Proyecto_1
             if (comboBox_area.Items.Count > 0)
             {
                 comboBox_area.SelectedIndex = 0;
+            }
+        }
+
+        private async void CargarProyectosDesdeApi()
+        {
+            try
+            {
+                ProyectoServicio proyectoServicio = new ProyectoServicio();
+                List<Proyecto> proyectos = await proyectoServicio.Index();
+
+                dataGridView_proyectos.Rows.Clear();
+
+                foreach (var proyecto in proyectos)
+                {
+                    dataGridView_proyectos.Rows.Add(
+                        proyecto.Name,
+                        proyecto.Description,
+                        proyecto.Status,
+                        proyecto.WorkerHours,
+                        proyecto.TotalHours,
+                        proyecto.CreatedAt.ToShortDateString());
+                }
+
+                CargarProyectosEnComboBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar proyectos: {ex.Message}");
             }
         }
 
